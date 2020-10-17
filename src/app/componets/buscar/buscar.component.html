@@ -1,0 +1,29 @@
+
+
+<h1 class="animated  fadeIn fast"> Buscando: <small>{{term}}</small> </h1>
+<hr>
+    <!-- AVISO SI NO EXISTE EL TERMINO BUSCADO -->
+<div class="row" *ngIf="arrHero.length == 0">
+    <div class="col-12">
+        <div class="alerta alerta- btn-primary">
+            <h3>No existe el termino {{term}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+
+    <div class="card animated fadeIn fast" *ngFor="let heroes of arrHero">
+        <img [src]="heroes.img" class="card-img-top" [alt]="heroes.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{heroes.nombre}}</h5>
+            <p class="card-text">{{heroes.bio}}</p>
+            <p class="card-text"><small>{{heroes.aparicion}}</small></p>
+            <button (click)="verHeroe(heroes.idx)"
+            type="button" class="btn btn-primary btn-block">Ver mas...</button>
+        </div>
+    </div>
+</div>
+
+<!-- 
+FALTA VALIDACIONES -->
